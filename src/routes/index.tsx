@@ -42,7 +42,7 @@ function Index() {
   return (
     <LanguageProvider>
       <AppointmentProvider>
-        <main>
+        <main className="pb-28 sm:pb-32">
           <Navbar />
           <Hero />
           <About />

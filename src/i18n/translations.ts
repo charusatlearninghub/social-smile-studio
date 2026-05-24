@@ -28,7 +28,7 @@ const en = {
     follow: "Follow",
     happyPatients: "Happy Patients",
     reviews: "2,400+ reviews",
-    imageAlt: "Smiling patient at Social Dentist clinic",
+    imageAlt: "Doctor at Social Dentist clinic",
     whatsappPrefill: "Hi! I'd like to book an appointment at SOCIAL DENTIST.",
   },
   about: {
@@ -89,16 +89,11 @@ const en = {
   doctors: {
     eyebrow: "Meet the team",
     title: "Certified specialists who genuinely care.",
-    experience: "experience",
-    drMehta: {
-      name: "Dr. Aarav Mehta",
-      qualification: "BDS, MDS — Implantology",
-      experience: "12+ years",
-    },
-    drRao: {
-      name: "Dr. Sofia Rao",
-      qualification: "BDS, MDS — Cosmetic Dentistry",
-      experience: "9+ years",
+    drArvind: {
+      name: "Dr. Arvind Kalsariya",
+      qualification: "DDS",
+      role: "Dental Surgeon",
+      experience: "Since 2017",
     },
   },
   results: {
@@ -287,7 +282,7 @@ const gu: TranslationTree = {
     follow: "ફોલો",
     happyPatients: "ખુશ દર્દીઓ",
     reviews: "2,400+ સમીક્ષાઓ",
-    imageAlt: "સોશિયલ ડેન્ટિસ્ટ ક્લિનિકમાં મુસ્કુરાતા દર્દી",
+    imageAlt: "સોશિયલ ડેન્ટિસ્ટ ક્લિનિકમાં ડૉક્ટર",
     whatsappPrefill: "નમસ્તે! હું SOCIAL DENTIST પર એપોઇન્ટમેન્ટ બુક કરવા માંગુ છું.",
   },
   about: {
@@ -348,16 +343,11 @@ const gu: TranslationTree = {
   doctors: {
     eyebrow: "ટીમને મળો",
     title: "સર્ટિફાઇડ નિષ્ણાતો જે ખરેખર કાળજી લે છે.",
-    experience: "અનુભવ",
-    drMehta: {
-      name: "ડૉ. આરવ મેહતા",
-      qualification: "BDS, MDS — ઇમ્પ્લાન્ટોલોજી",
-      experience: "12+ વર્ષ",
-    },
-    drRao: {
-      name: "ડૉ. સોફિયા રાઓ",
-      qualification: "BDS, MDS — કોસ્મેટિક દંતચિકિત્સા",
-      experience: "9+ વર્ષ",
+    drArvind: {
+      name: "ડૉ. અરવિંદ કલસારિયા",
+      qualification: "DDS",
+      role: "દંત સર્જન",
+      experience: "2017 થી",
     },
   },
   results: {

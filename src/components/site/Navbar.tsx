@@ -28,7 +28,7 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border/60 glass">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6">
         <a href="#top" className="flex items-center gap-3">
           <span className="grid size-10 place-items-center rounded-xl bg-gradient-brand shadow-soft">
             <span className="block size-3 rounded-sm bg-white/90" />
@@ -37,7 +37,7 @@ export function Navbar() {
             <span className="font-heading text-lg font-extrabold tracking-tight text-ink">
               SOCIAL DENTIST
             </span>
-            <span className="mt-0.5 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
+            <span className="mt-0.5 max-w-[9rem] truncate text-[9px] uppercase tracking-[0.12em] text-ink-soft sm:max-w-none sm:text-[10px] sm:tracking-[0.18em]">
               {t("nav.tagline")}
             </span>
           </span>
