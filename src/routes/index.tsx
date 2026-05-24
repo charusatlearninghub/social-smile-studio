@@ -1,26 +1,56 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Services } from "@/components/site/Services";
+import { WhyChooseUs } from "@/components/site/WhyChooseUs";
+import { Doctors } from "@/components/site/Doctors";
+import { Booking } from "@/components/site/Booking";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Gallery } from "@/components/site/Gallery";
+import { Faq } from "@/components/site/Faq";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "SOCIAL DENTIST — Creating Confident Smiles" },
+      {
+        name: "description",
+        content:
+          "Premium modern dental clinic offering implants, aligners, smile design, and pain-free digital dentistry. Book your appointment today.",
+      },
+      { property: "og:title", content: "SOCIAL DENTIST — Creating Confident Smiles" },
+      {
+        property: "og:description",
+        content: "Advanced dental care with modern technology. Book online or via WhatsApp.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <WhyChooseUs />
+      <Doctors />
+      <Testimonials />
+      <Gallery />
+      <Booking />
+      <Faq />
+      <Contact />
+      <Footer />
+      <WhatsAppFab />
+    </main>
+  );
 }
