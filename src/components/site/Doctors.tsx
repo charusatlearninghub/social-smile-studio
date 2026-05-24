@@ -1,34 +1,41 @@
 import { motion } from "framer-motion";
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
+import { SOCIAL_LINKS } from "@/lib/clinic";
+import { useLanguage } from "@/hooks/use-language";
 import d1 from "@/assets/doctor-1.jpg";
 import d2 from "@/assets/doctor-2.jpg";
 
-const doctors = [
-  {
-    img: d1,
-    name: "Dr. Aarav Mehta",
-    qualification: "BDS, MDS — Implantology",
-    experience: "12+ years",
-  },
-  {
-    img: d2,
-    name: "Dr. Sofia Rao",
-    qualification: "BDS, MDS — Cosmetic Dentistry",
-    experience: "9+ years",
-  },
-];
+const socials = [
+  { icon: Instagram, href: SOCIAL_LINKS.instagram, label: "Instagram" },
+  { icon: Facebook, href: SOCIAL_LINKS.facebook, label: "Facebook" },
+] as const;
 
 export function Doctors() {
+  const { t } = useLanguage();
+
+  const doctors = [
+    {
+      img: d1,
+      name: t("doctors.drMehta.name"),
+      qualification: t("doctors.drMehta.qualification"),
+      experience: t("doctors.drMehta.experience"),
+    },
+    {
+      img: d2,
+      name: t("doctors.drRao.name"),
+      qualification: t("doctors.drRao.qualification"),
+      experience: t("doctors.drRao.experience"),
+    },
+  ];
+
   return (
     <section id="doctors" className="bg-surface-2/60 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-14 max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Meet the team
+            {t("doctors.eyebrow")}
           </span>
-          <h2 className="mt-4 text-4xl font-bold text-ink lg:text-5xl">
-            Certified specialists who genuinely care.
-          </h2>
+          <h2 className="mt-4 text-4xl font-bold text-ink lg:text-5xl">{t("doctors.title")}</h2>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -56,17 +63,17 @@ export function Doctors() {
                   <div>
                     <h3 className="text-2xl font-bold text-ink">{d.name}</h3>
                     <p className="mt-1 text-sm text-ink-soft">{d.qualification}</p>
-                    <p className="mt-4 text-xs uppercase tracking-widest text-primary">
-                      {d.experience}
-                    </p>
+                    <p className="mt-4 text-xs uppercase tracking-widest text-primary">{d.experience}</p>
                   </div>
                   <div className="mt-6 flex gap-2">
-                    {[Instagram, Linkedin, Twitter].map((Icon, idx) => (
+                    {socials.map(({ icon: Icon, href, label }) => (
                       <a
-                        key={idx}
-                        href="#"
+                        key={label}
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
                         className="grid size-9 place-items-center rounded-full border border-border text-ink-soft transition-colors hover:bg-primary hover:text-primary-foreground"
-                        aria-label="Social"
+                        aria-label={label}
                       >
                         <Icon className="size-4" />
                       </a>

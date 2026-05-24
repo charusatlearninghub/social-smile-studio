@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Sparkles, HeartHandshake, Cpu } from "lucide-react";
 import labImg from "@/assets/clinic-lab.jpg";
-
-const pillars = [
-  { icon: ShieldCheck, label: "Experienced doctors" },
-  { icon: Cpu, label: "Digital dentistry" },
-  { icon: Sparkles, label: "Pain-free treatment" },
-  { icon: HeartHandshake, label: "Friendly environment" },
-];
+import { useLanguage } from "@/hooks/use-language";
 
 export function About() {
+  const { t } = useLanguage();
+
+  const pillars = [
+    { icon: ShieldCheck, label: t("about.pillars.experienced") },
+    { icon: Cpu, label: t("about.pillars.digital") },
+    { icon: Sparkles, label: t("about.pillars.painFree") },
+    { icon: HeartHandshake, label: t("about.pillars.friendly") },
+  ];
+
   return (
     <section id="about" className="py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -23,16 +26,10 @@ export function About() {
           <div className="lg:flex lg:items-center lg:gap-16">
             <div className="lg:w-1/2">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
-                About the clinic
+                {t("about.eyebrow")}
               </span>
-              <h2 className="mt-4 text-4xl font-bold lg:text-5xl">
-                Digital dentistry meets a social-first experience.
-              </h2>
-              <p className="mt-6 max-w-lg text-lg text-background/70">
-                SOCIAL DENTIST is a modern dental care clinic curating premium
-                treatments for the patient who values time, comfort, and aesthetics.
-                Every detail — from the welcome to the after-care — is designed.
-              </p>
+              <h2 className="mt-4 text-4xl font-bold lg:text-5xl">{t("about.title")}</h2>
+              <p className="mt-6 max-w-lg text-lg text-background/70">{t("about.description")}</p>
 
               <div className="mt-10 grid grid-cols-2 gap-4">
                 {pillars.map(({ icon: Icon, label }) => (
@@ -52,7 +49,7 @@ export function About() {
             <div className="mt-12 lg:mt-0 lg:w-1/2">
               <img
                 src={labImg}
-                alt="Modern dental surgery room"
+                alt={t("about.imageAlt")}
                 loading="lazy"
                 width={1280}
                 height={1024}

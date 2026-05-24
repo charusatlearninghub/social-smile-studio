@@ -1,45 +1,33 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-
-const faqs = [
-  {
-    q: "Is treatment painful?",
-    a: "Our protocols are designed for comfort — local anesthesia, sedation options, and gentle digital instruments mean most patients describe their visit as relaxing.",
-  },
-  {
-    q: "Do you provide aligners?",
-    a: "Yes. We're a certified Invisalign provider and use 3D iTero scanning to plan your discreet, removable aligners.",
-  },
-  {
-    q: "What are your emergency timings?",
-    a: "We reserve daily emergency slots and offer same-day appointments. Call or WhatsApp us and we'll fit you in.",
-  },
-  {
-    q: "Can I get a cost estimation upfront?",
-    a: "Absolutely. After a quick consultation we share a transparent plan — no hidden charges, ever.",
-  },
-];
+import { useLanguage } from "@/hooks/use-language";
 
 export function Faq() {
+  const { t } = useLanguage();
   const [open, setOpen] = useState(0);
+
+  const faqs = [
+    { q: t("faq.items.pain.q"), a: t("faq.items.pain.a") },
+    { q: t("faq.items.aligners.q"), a: t("faq.items.aligners.a") },
+    { q: t("faq.items.emergency.q"), a: t("faq.items.emergency.a") },
+    { q: t("faq.items.cost.q"), a: t("faq.items.cost.a") },
+  ];
+
   return (
     <section id="faq" className="bg-surface-2/60 py-24">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-12 text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Questions, answered
+            {t("faq.eyebrow")}
           </span>
-          <h2 className="mt-4 text-4xl font-bold text-ink lg:text-5xl">Frequently asked</h2>
+          <h2 className="mt-4 text-4xl font-bold text-ink lg:text-5xl">{t("faq.title")}</h2>
         </div>
 
         <div className="space-y-3">
           {faqs.map((f, i) => {
             const active = open === i;
             return (
-              <div
-                key={f.q}
-                className="overflow-hidden rounded-2xl border border-border bg-surface"
-              >
+              <div key={f.q} className="overflow-hidden rounded-2xl border border-border bg-surface">
                 <button
                   onClick={() => setOpen(active ? -1 : i)}
                   className="flex w-full items-center justify-between gap-4 p-6 text-left"

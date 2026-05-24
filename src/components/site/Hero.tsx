@@ -1,8 +1,20 @@
 import { motion } from "framer-motion";
-import { Calendar, MessageCircle, Instagram, Facebook, Twitter } from "lucide-react";
+import { Calendar, MessageCircle, Instagram, Facebook } from "lucide-react";
 import heroImg from "@/assets/hero-patient.jpg";
+import { useAppointment } from "@/hooks/use-appointment";
+import { useLanguage } from "@/hooks/use-language";
+import { SOCIAL_LINKS } from "@/lib/clinic";
+import { whatsAppUrl } from "@/lib/whatsapp";
 
 export function Hero() {
+  const { openAppointment } = useAppointment();
+  const { t } = useLanguage();
+
+  const socials = [
+    { icon: Instagram, href: SOCIAL_LINKS.instagram, label: "Instagram" },
+    { icon: Facebook, href: SOCIAL_LINKS.facebook, label: "Facebook" },
+  ] as const;
+
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-soft pt-16 pb-32">
       <div className="pointer-events-none absolute inset-0 bg-gradient-glow opacity-70" />
@@ -18,45 +30,45 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            Now accepting new patients
+            {t("hero.badge")}
           </div>
           <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-            Your Smile,
+            {t("hero.title1")}
             <br />
-            <span className="text-gradient-brand">Our Priority</span>
+            <span className="text-gradient-brand">{t("hero.title2")}</span>
           </h1>
-          <p className="mt-8 max-w-lg text-lg leading-relaxed text-ink-soft">
-            Advanced dental care with modern technology — pain-free treatments,
-            digital workflows, and a clinic designed for confident, Instagram-ready smiles.
-          </p>
+          <p className="mt-8 max-w-lg text-lg leading-relaxed text-ink-soft">{t("hero.description")}</p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#booking"
+            <button
+              type="button"
+              onClick={() => openAppointment()}
               className="group inline-flex items-center gap-2 rounded-2xl bg-primary px-7 py-4 font-bold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
               <Calendar className="size-5" />
-              Book Appointment
-            </a>
+              {t("hero.bookAppointment")}
+            </button>
             <a
-              href="https://wa.me/10000000000"
+              href={whatsAppUrl(t("hero.whatsappPrefill"))}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-2xl border border-border bg-surface px-7 py-4 font-bold text-ink shadow-soft transition-colors hover:bg-muted"
             >
               <MessageCircle className="size-5 text-whatsapp" />
-              WhatsApp Us
+              {t("hero.whatsappUs")}
             </a>
           </div>
 
           <div className="mt-10 flex items-center gap-4 text-ink-soft">
-            <span className="text-xs font-semibold uppercase tracking-[0.18em]">Follow</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.18em]">{t("hero.follow")}</span>
             <span className="h-px w-8 bg-border" />
-            {[Instagram, Facebook, Twitter].map((Icon, i) => (
+            {socials.map(({ icon: Icon, href, label }) => (
               <a
-                key={i}
-                href="#"
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
                 className="grid size-9 place-items-center rounded-full border border-border bg-surface transition-colors hover:bg-primary hover:text-primary-foreground"
-                aria-label="Social"
+                aria-label={label}
               >
                 <Icon className="size-4" />
               </a>
@@ -75,7 +87,7 @@ export function Hero() {
             <div className="absolute -bottom-16 -left-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
             <img
               src={heroImg}
-              alt="Smiling patient at Social Dentist clinic"
+              alt={t("hero.imageAlt")}
               width={1024}
               height={1280}
               className="relative aspect-[4/5] w-full rounded-[40px] object-cover shadow-glow ring-1 ring-black/5"
@@ -96,7 +108,7 @@ export function Hero() {
                 <div>
                   <div className="text-lg font-bold text-ink">5,000+</div>
                   <div className="text-[10px] uppercase tracking-[0.15em] text-ink-soft">
-                    Happy Patients
+                    {t("hero.happyPatients")}
                   </div>
                 </div>
               </div>
@@ -109,7 +121,7 @@ export function Hero() {
               className="absolute -top-6 right-4 rounded-2xl glass px-4 py-3 shadow-soft"
             >
               <div className="text-xs font-semibold text-primary">★ 4.9 / 5.0</div>
-              <div className="text-[10px] text-ink-soft">2,400+ reviews</div>
+              <div className="text-[10px] text-ink-soft">{t("hero.reviews")}</div>
             </motion.div>
           </div>
         </motion.div>

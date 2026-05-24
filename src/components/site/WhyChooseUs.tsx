@@ -1,25 +1,26 @@
 import { motion } from "framer-motion";
 import { Users, Award, Cpu, BadgeCheck, Wallet } from "lucide-react";
-
-const stats = [
-  { icon: Users, value: "5,000+", label: "Happy Patients" },
-  { icon: Award, value: "10+", label: "Years Experience" },
-  { icon: Cpu, value: "100%", label: "Digital Workflow" },
-  { icon: BadgeCheck, value: "12+", label: "Certified Dentists" },
-  { icon: Wallet, value: "0%", label: "Hidden Costs" },
-];
+import { useLanguage } from "@/hooks/use-language";
 
 export function WhyChooseUs() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { icon: Users, value: "5,000+", label: t("why.stats.happyPatients") },
+    { icon: Award, value: "10+", label: t("why.stats.yearsExperience") },
+    { icon: Cpu, value: "100%", label: t("why.stats.digitalWorkflow") },
+    { icon: BadgeCheck, value: "12+", label: t("why.stats.certifiedDentists") },
+    { icon: Wallet, value: "0%", label: t("why.stats.hiddenCosts") },
+  ];
+
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-14 max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Why choose us
+            {t("why.eyebrow")}
           </span>
-          <h2 className="mt-4 text-4xl font-bold text-ink lg:text-5xl">
-            Trusted by thousands. Designed for you.
-          </h2>
+          <h2 className="mt-4 text-4xl font-bold text-ink lg:text-5xl">{t("why.title")}</h2>
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-5">

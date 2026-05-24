@@ -8,10 +8,13 @@ import { Doctors } from "@/components/site/Doctors";
 import { Booking } from "@/components/site/Booking";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Gallery } from "@/components/site/Gallery";
+import { SmileResults } from "@/components/site/SmileResults";
 import { Faq } from "@/components/site/Faq";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { FloatingActions } from "@/components/site/FloatingActions";
+import { AppointmentProvider } from "@/hooks/use-appointment";
+import { LanguageProvider } from "@/hooks/use-language";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,20 +40,25 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <WhyChooseUs />
-      <Doctors />
-      <Testimonials />
-      <Gallery />
-      <Booking />
-      <Faq />
-      <Contact />
-      <Footer />
-      <WhatsAppFab />
-    </main>
+    <LanguageProvider>
+      <AppointmentProvider>
+        <main>
+          <Navbar />
+          <Hero />
+          <About />
+          <Services />
+          <WhyChooseUs />
+          <Doctors />
+          <SmileResults />
+          <Testimonials />
+          <Gallery />
+          <Booking />
+          <Faq />
+          <Contact />
+          <Footer />
+          <FloatingActions />
+        </main>
+      </AppointmentProvider>
+    </LanguageProvider>
   );
 }
