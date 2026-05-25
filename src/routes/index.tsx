@@ -58,6 +58,7 @@ function Index() {
           <Contact />
           <Footer />
           <FloatingActions />
+          <MobileBottomNav />
         </main>
       </AppointmentProvider>
     </LanguageProvider>
