@@ -7,7 +7,7 @@ export function FloatingActions() {
   const { t } = useLanguage();
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2 sm:bottom-6 sm:right-6 sm:gap-3">
+    <div className="fixed bottom-24 right-4 z-50 flex flex-col items-end gap-2 sm:bottom-6 sm:right-6 sm:gap-3">
       <LanguageToggle />
       <a
         href={whatsAppUrl(t("form.whatsappConnect"))}
