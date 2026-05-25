@@ -254,7 +254,7 @@ const en = {
     footer: "Sent from the website booking form.",
     notSpecified: "Not specified",
   },
-} as const;
+};
 
 const gu: TranslationTree = {
   lang: { english: "English", gujarati: "ગુજરાતી" },
