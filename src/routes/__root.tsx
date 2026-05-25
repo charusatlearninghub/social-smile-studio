@@ -9,6 +9,9 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { LanguageProvider } from "@/hooks/use-language";
+import { AppointmentProvider } from "@/hooks/use-appointment";
+import { SiteLayout } from "@/components/site/SiteLayout";
 
 function NotFoundComponent() {
   return (
@@ -120,7 +123,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <LanguageProvider>
+        <AppointmentProvider>
+          <SiteLayout>
+            <Outlet />
+          </SiteLayout>
+        </AppointmentProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
