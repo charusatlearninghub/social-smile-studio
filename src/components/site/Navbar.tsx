@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useAppointment } from "@/hooks/use-appointment";
 import { useLanguage } from "@/hooks/use-language";
 
@@ -10,12 +11,12 @@ export function Navbar() {
   const { t } = useLanguage();
 
   const links = [
-    { href: "#services", label: t("nav.services") },
-    { href: "#results", label: t("nav.results") },
-    { href: "#doctors", label: t("nav.doctors") },
-    { href: "#gallery", label: t("nav.gallery") },
-    { href: "#contact", label: t("nav.contact") },
-  ];
+    { to: "/services", label: t("nav.services") },
+    { to: "/results", label: t("nav.results") },
+    { to: "/doctors", label: t("nav.doctors") },
+    { to: "/gallery", label: t("nav.gallery") },
+    { to: "/book", label: t("nav.contact") },
+  ] as const;
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -29,7 +30,7 @@ export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 border-b border-border/60 glass">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6">
-        <a href="#top" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <span className="grid size-10 place-items-center rounded-xl bg-gradient-brand shadow-soft">
             <span className="block size-3 rounded-sm bg-white/90" />
           </span>
@@ -41,17 +42,18 @@ export function Navbar() {
               {t("nav.tagline")}
             </span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link
+              key={l.to}
+              to={l.to}
+              activeProps={{ className: "text-primary" }}
               className="text-sm font-medium text-ink-soft transition-colors hover:text-primary"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <button
             onClick={() => setDark((d) => !d)}
@@ -82,14 +84,15 @@ export function Navbar() {
         <div className="border-t border-border bg-surface md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <Link
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
+                activeProps={{ className: "bg-muted text-primary" }}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft hover:bg-muted"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <button
               type="button"
