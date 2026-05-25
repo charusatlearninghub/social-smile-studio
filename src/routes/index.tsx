@@ -13,6 +13,7 @@ import { Faq } from "@/components/site/Faq";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingActions } from "@/components/site/FloatingActions";
+import { MobileBottomNav } from "@/components/site/MobileBottomNav";
 import { AppointmentProvider } from "@/hooks/use-appointment";
 import { LanguageProvider } from "@/hooks/use-language";
 
