@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
@@ -11,11 +10,6 @@ import { Gallery } from "@/components/site/Gallery";
 import { SmileResults } from "@/components/site/SmileResults";
 import { Faq } from "@/components/site/Faq";
 import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
-import { FloatingActions } from "@/components/site/FloatingActions";
-import { MobileBottomNav } from "@/components/site/MobileBottomNav";
-import { AppointmentProvider } from "@/hooks/use-appointment";
-import { LanguageProvider } from "@/hooks/use-language";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,26 +35,18 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <LanguageProvider>
-      <AppointmentProvider>
-        <main className="pb-28 sm:pb-32">
-          <Navbar />
-          <Hero />
-          <About />
-          <Services />
-          <WhyChooseUs />
-          <Doctors />
-          <SmileResults />
-          <Testimonials />
-          <Gallery />
-          <Booking />
-          <Faq />
-          <Contact />
-          <Footer />
-          <FloatingActions />
-          <MobileBottomNav />
-        </main>
-      </AppointmentProvider>
-    </LanguageProvider>
+    <>
+      <Hero />
+      <About />
+      <Services />
+      <WhyChooseUs />
+      <Doctors />
+      <SmileResults />
+      <Testimonials />
+      <Gallery />
+      <Booking />
+      <Faq />
+      <Contact />
+    </>
   );
 }
